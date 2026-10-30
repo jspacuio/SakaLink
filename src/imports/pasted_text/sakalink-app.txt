@@ -1,0 +1,936 @@
+You are a senior full-stack web developer, UI/UX designer, database architect, and software engineer.
+
+Build a fully functional, responsive web application called SAKALINK, based on the provided SAKALINK prototype and user flows.
+
+SAKALINK is an all-in-one agricultural digital marketplace that connects Farmers, Buyers, and Lenders in one platform.
+
+This must be a working web application, not just a static UI prototype. All major buttons, forms, navigation, authentication, CRUD operations, marketplace functions, messaging, orders, and loan management features must work.
+
+1. APPLICATION CONCEPT
+Application Name
+
+SAKALINK
+
+Tagline
+
+"Connecting Farmers, Buyers, and Lenders."
+
+Main Purpose
+
+SAKALINK solves common agricultural problems by providing one platform where:
+
+Farmers
+→ Sell agricultural products
+→ Find buyers
+→ Manage harvests
+→ Apply for agricultural financing
+
+Buyers
+→ Discover agricultural products
+→ Find nearby farmers
+→ Purchase crops
+→ Communicate with farmers
+
+Lenders
+→ Discover legitimate agricultural projects
+→ Review farmer information
+→ Evaluate loan applications
+→ Approve or reject financing requests
+
+2. TECHNOLOGY STACK
+
+Use the following stack:
+
+Frontend
+HTML5
+CSS3
+JavaScript
+Bootstrap 5
+Bootstrap Icons
+Backend
+PHP 8+
+MySQL
+PDO
+Development Environment
+
+The application should work properly in:
+
+Laragon
+XAMPP
+Apache
+MySQL
+Architecture
+
+Use a clean MVC-inspired structure:
+
+sakalink/
+│
+├── index.php
+├── login.php
+├── register.php
+├── logout.php
+│
+├── config/
+│   └── database.php
+│
+├── controllers/
+│
+├── models/
+│
+├── views/
+│
+├── farmer/
+│   ├── dashboard.php
+│   ├── products.php
+│   ├── add-product.php
+│   ├── edit-product.php
+│   ├── orders.php
+│   ├── messages.php
+│   ├── loans.php
+│   └── profile.php
+│
+├── buyer/
+│   ├── dashboard.php
+│   ├── marketplace.php
+│   ├── product.php
+│   ├── cart.php
+│   ├── checkout.php
+│   ├── orders.php
+│   ├── messages.php
+│   └── profile.php
+│
+├── lender/
+│   ├── dashboard.php
+│   ├── loan-requests.php
+│   ├── farmer-profile.php
+│   ├── loan-details.php
+│   ├── active-loans.php
+│   └── profile.php
+│
+├── admin/
+│   ├── dashboard.php
+│   ├── users.php
+│   ├── products.php
+│   ├── orders.php
+│   ├── loans.php
+│   └── reports.php
+│
+├── assets/
+│   ├── css/
+│   ├── js/
+│   ├── images/
+│   └── uploads/
+│
+└── database/
+    └── sakalink.sql
+3. DESIGN SYSTEM
+
+Create a modern agricultural design.
+
+Primary Colors
+Forest Green: #234F1E
+Leaf Green: #5B8C2A
+Gold: #F4B400
+White: #FFFFFF
+Light Gray: #F5F7F5
+Dark Gray: #333333
+
+Use:
+
+Rounded cards
+Soft shadows
+Clean typography
+Large readable buttons
+Agricultural icons
+Crop/product images
+Responsive tables
+Dashboard statistics
+Modern navigation
+
+The interface should feel:
+
+Trustworthy + Agricultural + Modern + Simple
+
+Avoid making it look like a generic corporate website.
+
+4. LANDING PAGE
+
+Create a professional homepage.
+
+Sections:
+
+Hero
+
+SAKALINK
+
+Connecting Farmers, Buyers, and Lenders.
+
+Buttons:
+
+Get Started
+
+Login
+
+Add an agricultural illustration/hero image.
+
+How It Works
+
+Show three cards:
+
+🌾 Farmer
+
+Sell crops and access financing.
+
+🛒 Buyer
+
+Buy fresh agricultural products directly from farmers.
+
+💰 Lender
+
+Support agricultural projects through financing.
+
+Features
+Agricultural Marketplace
+Farmer-to-Buyer Communication
+Agricultural Financing
+Order Management
+Secure Transactions
+Farmer Profiles
+Location-Based Discovery
+5. AUTHENTICATION
+
+Implement real authentication using PHP sessions and MySQL.
+
+Login
+
+Fields:
+
+Email
+Password
+
+Buttons:
+
+LOGIN
+
+Forgot Password?
+
+Create Account
+
+Registration
+
+Fields:
+
+Full Name
+Email
+Phone Number
+Password
+Confirm Password
+Address
+User Role
+
+Role options:
+
+Farmer
+Buyer
+Lender
+
+Validate all fields.
+
+Hash passwords using:
+
+password_hash()
+
+Verify using:
+
+password_verify()
+6. ROLE-BASED ACCESS
+
+After login, redirect users based on their role.
+
+Farmer → /farmer/dashboard.php
+
+Buyer → /buyer/dashboard.php
+
+Lender → /lender/dashboard.php
+
+Admin → /admin/dashboard.php
+
+Users must not be able to access another user's dashboard.
+
+Implement session-based authorization.
+
+7. FARMER DASHBOARD
+
+Create a dashboard showing:
+
+Statistics
+Total Products
+Active Listings
+Pending Orders
+Total Sales
+Active Loan
+Quick Actions
++ Add Product
+View Orders
+Apply for Loan
+Messages
+Sales Chart
+
+Show:
+
+Monthly Sales
+Products Sold
+Revenue
+
+Use Chart.js.
+
+8. FARMER PRODUCT MANAGEMENT
+
+Farmers can:
+
+Add Product
+
+Fields:
+
+Product Name
+Category
+Description
+Price per Unit
+Available Quantity
+Unit
+Harvest Date
+Location
+Product Image
+
+Categories:
+
+Vegetables
+Fruits
+Rice
+Corn
+Root Crops
+Livestock
+Poultry
+Other
+
+Implement:
+
+CREATE
+
+READ
+
+UPDATE
+
+DELETE
+
+operations.
+
+9. BUYER MARKETPLACE
+
+Create a marketplace where buyers can browse farmer products.
+
+Each product card should display:
+
+Product Image
+Product Name
+Farmer Name
+Location
+Price
+Available Quantity
+Rating
+
+Buttons:
+
+View Details
+
+Add to Cart
+
+Favorite
+
+10. SEARCH AND FILTER
+
+Implement working search.
+
+Buyers should be able to search by:
+
+Product Name
+Category
+Farmer
+Location
+
+Filters:
+
+Price Range
+Category
+Location
+Availability
+
+Add sorting:
+
+Lowest Price
+Highest Price
+Newest
+Nearest
+11. PRODUCT DETAILS
+
+Create a detailed product page.
+
+Display:
+
+Product image
+Product name
+Price
+Quantity available
+Farmer information
+Farm location
+Description
+Harvest date
+Rating
+
+Buttons:
+
+Add to Cart
+
+Buy Now
+
+Message Farmer
+
+12. SHOPPING CART
+
+Implement a functional cart.
+
+Features:
+
+Add Product
+Remove Product
+Increase Quantity
+Decrease Quantity
+Calculate Subtotal
+Calculate Total
+
+Display:
+
+Subtotal
+Delivery Fee
+Total
+
+Button:
+
+Proceed to Checkout
+
+13. CHECKOUT
+
+Create checkout form:
+
+Buyer Name
+Contact Number
+Delivery Address
+Payment Method
+Order Summary
+
+Payment methods:
+
+Cash on Delivery
+GCash
+Bank Transfer
+
+For the prototype, payment can be simulated.
+
+After successful checkout:
+
+Show:
+
+Order Successfully Placed!
+
+Generate an order number.
+
+14. ORDER MANAGEMENT
+Buyer
+
+Can view:
+
+Pending
+Confirmed
+Preparing
+Shipped
+Delivered
+Cancelled
+Farmer
+
+Can:
+
+Accept Order
+Reject Order
+Mark as Preparing
+Mark as Shipped
+Mark as Delivered
+
+Create a visual order-status timeline.
+
+15. FARMER-BUYER CHAT
+
+Implement a messaging system using MySQL.
+
+Users can:
+
+Send messages
+Receive messages
+View conversations
+View timestamps
+See unread messages
+
+Database:
+
+messages
+
+Fields:
+
+id
+sender_id
+receiver_id
+message
+created_at
+is_read
+
+Use AJAX/PHP polling for a smoother chat experience.
+
+16. FARMER PROFILE
+
+Display:
+
+Farmer Photo
+Farmer Name
+Location
+Farm Name
+Years of Farming
+Products
+Rating
+Completed Orders
+
+Add:
+
+View Products
+
+Message Farmer
+
+17. LOAN SYSTEM
+
+Create a complete agricultural loan feature.
+
+Farmer
+
+Button:
+
+Apply for Loan
+
+Form:
+
+Loan Amount
+Purpose
+Farm Size
+Crop Type
+Estimated Harvest
+Expected Income
+Loan Term
+Supporting Documents
+
+Status:
+
+Pending
+Under Review
+Approved
+Rejected
+18. LENDER DASHBOARD
+
+Display:
+
+Pending Applications
+Approved Loans
+Active Loans
+Total Amount Funded
+
+Loan request cards:
+
+Farmer Name
+Requested Amount
+Purpose
+Farm Location
+Crop Type
+Application Date
+Status
+
+Buttons:
+
+Review
+
+19. LOAN DETAILS
+
+Lender can view:
+
+Farmer Profile
+Farm Information
+Crop Information
+Requested Amount
+Purpose
+Expected Income
+Supporting Documents
+Loan History
+
+Buttons:
+
+APPROVE
+
+REJECT
+
+If rejecting, require:
+
+Reason for Rejection
+20. NOTIFICATION SYSTEM
+
+Create notifications for:
+
+Farmer
+New order
+Buyer message
+Loan approved
+Loan rejected
+Product sold
+Buyer
+Order confirmed
+Order shipped
+Order delivered
+Farmer message
+Lender
+New loan application
+Farmer submitted documents
+Loan decision required
+21. DATABASE
+
+Create a complete MySQL database called:
+
+sakalink
+
+Tables:
+
+users
+farms
+products
+categories
+orders
+order_items
+cart
+favorites
+messages
+conversations
+loans
+loan_documents
+notifications
+reviews
+
+Provide a complete:
+
+sakalink.sql
+
+file containing:
+
+CREATE TABLE statements
+Foreign keys
+Indexes
+Sample data
+22. SECURITY
+
+Implement:
+
+Password hashing
+Prepared SQL statements
+PDO
+Session authentication
+Role-based authorization
+CSRF protection
+Input validation
+Output escaping
+File upload validation
+Secure image upload
+SQL injection protection
+XSS protection
+
+Never store plain-text passwords.
+
+23. RESPONSIVE DESIGN
+
+The website must work on:
+
+Desktop
+Laptop
+Tablet
+Mobile
+
+Desktop:
+
+Use sidebar navigation.
+
+Mobile:
+
+Use bottom navigation or collapsible menu.
+
+The interface should closely resemble a modern mobile application when viewed on smaller screens.
+
+24. NAVIGATION
+Farmer
+Dashboard
+Products
+Orders
+Messages
+Loans
+Profile
+Settings
+Logout
+Buyer
+Home
+Marketplace
+Orders
+Messages
+Favorites
+Profile
+Settings
+Logout
+Lender
+Dashboard
+Loan Requests
+Active Loans
+Messages
+Reports
+Profile
+Settings
+Logout
+25. ADMIN PANEL
+
+Create an optional Admin Dashboard.
+
+Admin can:
+
+View Users
+Add/Edit/Delete Users
+View Products
+Approve/Remove Listings
+View Orders
+View Loans
+View Reports
+View System Analytics
+
+Dashboard statistics:
+
+Total Users
+Farmers
+Buyers
+Lenders
+Products
+Orders
+Loans
+Revenue
+26. ERROR AND EMPTY STATES
+
+Do not leave blank pages.
+
+Create:
+
+Loading
+
+Loading...
+
+Empty Marketplace
+
+No products found.
+
+Empty Orders
+
+You don't have any orders yet.
+
+Error
+
+Something went wrong. Please try again.
+
+Success
+
+Successfully completed!
+
+27. SAMPLE DATA
+
+Create realistic Philippine agricultural sample data.
+
+Examples:
+
+Tomatoes
+₱80/kg
+
+Rice
+₱55/kg
+
+Sweet Corn
+₱45/kg
+
+Carrots
+₱90/kg
+
+Eggplant
+₱60/kg
+
+Bananas
+₱70/kg
+
+Use Philippine locations such as:
+
+Kabacan
+Kidapawan
+Midsayap
+Davao
+Cotabato
+General Santos
+
+Use fictional farmer names and accounts for testing.
+
+28. DEMO ACCOUNTS
+
+Create sample accounts:
+
+Farmer
+farmer@sakalink.test
+password123
+
+Buyer
+buyer@sakalink.test
+password123
+
+Lender
+lender@sakalink.test
+password123
+
+Admin
+admin@sakalink.test
+password123
+
+Clearly label these as demo accounts.
+
+29. IMPORTANT DEVELOPMENT RULES
+
+Do NOT generate a fake frontend where buttons don't work.
+
+Every major button must have an actual function.
+
+For example:
+
+Login → Authenticate user
+
+Register → Create database account
+
+Add Product → Save product to MySQL
+
+Edit Product → Update database
+
+Delete Product → Remove product
+
+Add to Cart → Save cart item
+
+Checkout → Create order
+
+Message → Save message
+
+Apply Loan → Create loan application
+
+Approve Loan → Update loan status
+
+Reject Loan → Update loan status
+
+Use AJAX where appropriate.
+
+Do not duplicate code unnecessarily.
+
+Use reusable components.
+
+Use prepared statements.
+
+Keep frontend, backend, and database logic organized.
+
+30. DEVELOPMENT PROCESS
+
+Build the project in phases.
+
+Phase 1
+
+Set up:
+
+PHP
+MySQL
+Bootstrap
+Database
+Authentication
+Sessions
+Phase 2
+
+Build:
+
+Farmer Dashboard
+Product CRUD
+Phase 3
+
+Build:
+
+Buyer Marketplace
+Search
+Filters
+Cart
+Checkout
+Phase 4
+
+Build:
+
+Orders
+Messaging
+Notifications
+Phase 5
+
+Build:
+
+Loan System
+Lender Dashboard
+Phase 6
+
+Build:
+
+Admin Dashboard
+Reports
+Analytics
+Phase 7
+
+Perform:
+
+Security Testing
+Responsive Testing
+Database Testing
+Form Validation
+Error Handling
+31. FINAL REQUIREMENT
+
+At the end, provide:
+
+Complete source code
+Database SQL file
+README.md
+Installation instructions
+Database setup instructions
+Demo accounts
+Project folder structure
+
+The README should explain how to run SAKALINK using Laragon:
+
+1. Install Laragon
+2. Place sakalink inside C:/laragon/www/
+3. Start Apache and MySQL
+4. Create database: sakalink
+5. Import sakalink.sql
+6. Configure database.php
+7. Open http://localhost/sakalink/
+
+The final result should be a fully functional SAKALINK agricultural marketplace web application, not merely a visual prototype.
+
+Prioritize functionality first, then visual polish. Make sure the application can actually perform CRUD operations and complete the Farmer → Buyer → Lender workflows end-to-end.
